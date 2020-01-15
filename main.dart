@@ -118,7 +118,7 @@ class MyScaffold extends StatelessWidget{
   }
 
   Future<List<Post>> _getPosts() async{
-    var data = await http.get("localhost/xxyyzz/admin_panel/backend/api_connector.php");
+    var data = await http.get("www.empowermentopportunities.com/xxyyzz/admin_panel/backend/api_connector.php");
     var jsonData = json.decode(data.body);
 
     List<Post> posts = [];
@@ -151,28 +151,3 @@ void main(){
   ));
 }
 
-class FooterNav extends StatelessWidget{
-
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-
-
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (int index){
-          setState((){
-            currentIndex = index;
-          });
-        },
-
-        items: allDestinations.map(Destination destination){
-          return BottomNavigationBarItem(
-            icon: Icon(destination.icon),
-            backgroundColor: destination.color,
-            title: Text(destination.title)
-          );
-        }).toList(),  
-    );
-  }
-}
